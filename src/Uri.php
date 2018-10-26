@@ -601,7 +601,7 @@ class Uri implements UriInterface
      */
     private function filterQuery(string $query) : string
     {
-        if ('' !== $query && strpos($query, '?') === 0) {
+        if ('' !== $query && $query[0] === '?') {
             $query = substr($query, 1);
         }
 
@@ -642,7 +642,7 @@ class Uri implements UriInterface
      */
     private function filterFragment(string $fragment) : string
     {
-        if ('' !== $fragment && strpos($fragment, '#') === 0) {
+        if ('' !== $fragment && $fragment[0] === '#') {
             $fragment = '%23' . substr($fragment, 1);
         }
 
